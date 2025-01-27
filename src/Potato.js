@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 // React 17이후에는 단순히 JSX를 사용하기 위해 imort가 필수는 아님.
 

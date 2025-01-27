@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App"; // app.js 컴포넌트
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // 아이디가 root인 문서를 가져와서 react dom을 만든다
-root.render(<App />, document.getElementById("root")); // root에 렌더링한다 app 컴포넌트를
+root.render(<App />); // root 엘리먼트를 두 번째 인자로 전달하지 않음
 
 // root.render(<App />);
 // 생성된 root에 App 컴포넌트를 렌더링합니다.
