@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./App"; // app.js 컴포넌트
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // 아이디가 root인 문서를 가져와서 react dom을 만든다
 root.render(<App />, document.getElementById("root")); // root에 렌더링한다 app 컴포넌트를
