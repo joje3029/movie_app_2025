@@ -1,7 +1,19 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Detail() {
-	return <div>싱세보기</div>;
+	const location = useLocation();
+	const navigate = useNavigate();
+
+	React.useEffect(() => {
+		if (!location.state) {
+			navigate("/");
+		}
+	}, []);
+
+	if (!location.state) return null;
+
+	return <div>{location.state.title}</div>;
 }
 
 export default Detail;

@@ -7,10 +7,8 @@ function Movie({ title, year, rating, summary, poster, genres }) {
 	return (
 		<div className="movie">
 			<Link
-				to={{
-					pathname: "/movie-detail", // 클릭시 http://localhost:3000/#/movie-detail 즉, 해당 영화의 상세보기로 이동,
-					state: { year, title, summary, poster, genres }, // 상세보기에서 사용할 데이터를 state로 전달
-				}}
+				to="/movie-detail" // 클릭시 http://localhost:3000/#/movie-detail 즉, 해당 영화의 상세보기로 이동,
+				state={{ year, title, summary, poster, genres }}
 			>
 				<img src={poster} alt={title} title={title} />
 				<div className="movie__data">
