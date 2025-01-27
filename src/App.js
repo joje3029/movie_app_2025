@@ -3,6 +3,7 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Navigation from "./components/Navigation";
 import "./App.css";
+import Detail from "./routes/Detail";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				{/* HashrRouter는 url에 #를 사용함. 고로 http://localhost:3000/#/about 로 해야함. http://localhost:3000/about로 하고 싶으면 BrowserRouter 사용 */}
 				<Route path="/about" element={<About />} />
+				<Route path="/movie-detail" element={<Detail />} />
 			</Routes>
 		</HashRouter>
 	);
