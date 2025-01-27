@@ -34,14 +34,15 @@ class App extends React.Component {
 					? "Loading..."
 					: this.state.movies.map((movie) => {
 							return (
-								<div className="movies">
+								/* 여기부터 하나의 새 컴포넌트니까 */
+								<div className="movies" key={movie.id}>
 									<Movie
-										key={movie.id}
 										title={movie.title}
 										year={movie.year}
 										rating={movie.rating}
 										summary={movie.summary}
 										poster={movie.medium_cover_image}
+										genres={movie.genres}
 									/>
 								</div>
 							);

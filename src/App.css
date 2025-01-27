@@ -1,3 +1,21 @@
-body {
+* {
+	box-sizing: border-box;  /* 패딩과 테두리를 요소의 전체 너비/높이에 포함 */
+  }
+  
+  body {
+	margin: 0;
+	padding: 0;
+	/* 시스템 기본 폰트들을 순서대로 적용하는 폰트 폴백(font fallback) 시스템 */
+	font-family: -apple-system,         /* Apple 기기 */
+				BlinkMacSystemFont,     /* Chrome macOS */
+				"Segoe UI",            /* Windows */
+				Roboto,                /* Android */
+				Oxygen,                /* Linux KDE */
+				Ubuntu,                /* Ubuntu Linux */
+				Cantarell,            /* GNOME Linux */
+				"Open Sans",          /* 웹 폰트 */
+				"Helvetica Neue",     /* 구형 macOS */
+				sans-serif;           /* 기본 sans-serif */
 	background-color: #eff3f7;
-}
+	height: 100%;
+  }
