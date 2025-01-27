@@ -14,7 +14,6 @@ class App extends React.Component {
 
 	add = () => {
 		this.setState((current) => {
-			console.log("current.count : ", current);
 			return { count: current.count + 1 };
 		});
 	};
@@ -23,8 +22,32 @@ class App extends React.Component {
 		this.setState((current) => ({ count: current.count - 1 }));
 	};
 
+	//React.Component에 포함된 함수가 아닌 js 함수
+	constructor(props) {
+		super(props);
+		console.log("hello"); //아래 render 보다 먼저 console에 출력
+	}
+
+	componentDidMount() {
+		console.log("componentDidMount"); //render 후에 console에 출력 -> 즉 Mount 후 출력.
+	}
+
+	//constructor(), render(), componentDidMount() 순서로 출력. => Mount 함수 종류
+
+	componentDidUpdate() {
+		// 화면이 업데이트 (새로 그려지면) 실행, 그래서 아래의 add / minus 버튼이 누르면 출력
+		console.log("componentDidUpdate");
+	}
+
+	//컴포넌트가 죽을때 = Unmount
+	componentWillUnmount() {
+		// 보통 컴포넌트에 적용한 이벤트 리스너를 제거할 떄 많이 사용
+		console.log("componentWillUnmount");
+	}
+
 	//클래스형 컴포넌트에서는 JSX 를 반환하기 위해 render() 메서드를 사용해야 함.
 	render() {
+		console.log("render");
 		return (
 			<div>
 				<h1>I'm a class component</h1>
