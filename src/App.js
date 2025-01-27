@@ -9,7 +9,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 function App() {
 	// Route에는 2가지 props를 전달할 수 있는데, 하나는 URL을 위한 path props, 하나는 URL에 맞는 컴포넌트를 불러 주기 위한 Component props
 	return (
-		<HashRouter>
+		<HashRouter basename="/movie_app_2025">
 			{/* Link, Router 컴포넌트는 반드시 HashRouter 안에 포함되어야 함, 단 Routes 안에는 포함되면 안됨.
 				Navigation 메뉴는 모든 페이지에서 보여야 하므로 Routes 밖에 위치해야함
 			 */}
