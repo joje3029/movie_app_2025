@@ -6,21 +6,65 @@ import "./App.css";
 import Detail from "./routes/Detail";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
+/*기존 코드
 function App() {
-	// Route에는 2가지 props를 전달할 수 있는데, 하나는 URL을 위한 path props, 하나는 URL에 맞는 컴포넌트를 불러 주기 위한 Component props
 	return (
-		<HashRouter basename="/movie_app_2025">
-			{/* Link, Router 컴포넌트는 반드시 HashRouter 안에 포함되어야 함, 단 Routes 안에는 포함되면 안됨.
-				Navigation 메뉴는 모든 페이지에서 보여야 하므로 Routes 밖에 위치해야함
-			 */}
+		<HashRouter>
 			<Navigation />
-			{/* <Routes> 안에는 오직 <Route> 컴포넌트나 <React.Fragment>만 올 수 있음.  */}
 			<Routes>
 				<Route path="/" element={<Home />} />
-				{/* HashrRouter는 url에 #를 사용함. 고로 http://localhost:3000/#/about 로 해야함. http://localhost:3000/about로 하고 싶으면 BrowserRouter 사용 */}
 				<Route path="/about" element={<About />} />
 				<Route path="/movie-detail" element={<Detail />} />
 			</Routes>
+		</HashRouter>
+	);
+}
+*/
+
+/* 1차 라우트 설정 부분 분리
+const AppRouter = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/movie-detail" element={<Detail />} />
+    </Routes>
+  );
+};
+*/
+
+const routeConfig = [
+	{ path: "/", element: <Home /> },
+	{ path: "/about", element: <About /> },
+	{ path: "/movie-detail", element: <Detail /> },
+];
+
+/* 2차 라우트 설정 부분 분리
+const AppRouter = () => {
+    return (
+        <Routes>
+            {routeConfig.map((route) => (
+                <Route key={route.path} {...route} />
+            ))}
+        </Routes>
+    );
+};
+*/
+
+// 3차 라우트 설정 부분 분리 : 화살표 함수의 암시적 반환 사용
+const AppRouter = () => (
+	<Routes>
+		{routeConfig.map((route) => (
+			<Route key={route.path} {...route} />
+		))}
+	</Routes>
+);
+
+function App() {
+	return (
+		<HashRouter>
+			<Navigation />
+			<AppRouter />
 		</HashRouter>
 	);
 }
